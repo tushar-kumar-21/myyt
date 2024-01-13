@@ -8,7 +8,7 @@ import { BiSolidMicrophone } from "react-icons/bi";
 
 const Header = () => {
     return (
-        <div className='p-5 flex justify-between pt-2 w-full bg-black sticky top-0'>
+        <div className='p-5 flex justify-between pt-2 w-full bg-bgBackPrimary sticky top-0 z-20'>
             <div className='relative flex gap-4 w-fit items-center'>
                 <RxHamburgerMenu className="text-[22.5px] text-white" />
                 <Image

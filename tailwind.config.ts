@@ -15,7 +15,9 @@ const config: Config = {
       },
       colors: {
         primaryColor:'#fff',
-        bgPrimary: 'rgba(126,126,126,0.25)'
+        bgPrimary: 'rgba(126,126,126,0.25)',
+        bgBackPrimary:'#0f0f0f',
+        textSecondary:"#aaa",
       },
     },
   },

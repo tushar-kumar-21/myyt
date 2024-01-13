@@ -14,16 +14,10 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoLogoYoutube, IoNewspaper } from "react-icons/io5";
 import { RiAddCircleLine } from "react-icons/ri";
 import { TbBrandYoutubeKids } from "react-icons/tb";
+import { CategoryItem } from '@/app/interfaces/Interfaces';
 
 const styles = {
     listStyle: 'list-none flex items-center p-2 gap-6 px-4 rounded-lg mb-1 cursor-pointer transition-all group hover:bg-bgPrimary'
-}
-
-
-interface CategoryItem {
-    label: string;
-    icon: JSX.Element;
-    id: number;
 }
 
 const Sidebar = () => {
@@ -54,13 +48,17 @@ const Sidebar = () => {
 
     const moreSection = [
         { label: 'YouTube Premium', icon: <IoLogoYoutube />, id: generateUniqueId() },
-        { label: 'YouTube Music', icon: <SiYoutubemusic />, id: generateUniqueId() },
+            { label: 'YouTube Music', icon: <SiYoutubemusic />, id: generateUniqueId() },
         { label: 'YouTube Kids', icon: <TbBrandYoutubeKids />, id: generateUniqueId() },
+    ]
+
+    const settings = [
+
     ]
 
     return (
         <aside className="max-w-56 p-2 px-0 max-h-[calc(100vh-70px)] overflow-x-scroll scroller">
-            <ul className='px-2'>
+            <ul className='px-2 pl-1'>
                 {categories?.map((item: CategoryItem, ind: number) => (
                     <>
                         <li key={item.id} className={styles.listStyle} >
@@ -116,11 +114,11 @@ const Sidebar = () => {
                         <li key={item.id} className={styles.listStyle} >
                             <span className="text-2xl text-red-600">{item.icon}</span>
                             <span className="text-base font-semibold tracking-wider">{item.label}</span>
-                        </li>                       
+                        </li>
                     </>
                 ))}
             </ul>
-                <div className="my-2 bg-gray-700 h-[.1px]" />
+            <div className="my-2 bg-gray-700 h-[.1px]" />
         </aside>
     );
 };
