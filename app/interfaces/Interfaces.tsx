@@ -12,3 +12,52 @@ export interface VideoLists {
     channel: string;
     views: string;
 }
+
+export interface VideoFile {
+    id: number;
+    width: number;
+    height: number;
+    duration: number;
+    avg_color: string | null;
+    full_res: string | null;
+    image: string;
+    tags: string[];
+    url: string;
+    user: {
+        id: number;
+        name: string;
+        url: string;
+    };
+    video_files: {
+        file_type: string;
+        fps: number;
+        height: number;
+        id: number;
+        link: string;
+        quality: string;
+        width: number;
+    }[];
+    video_pictures: string[]
+}
+
+export interface VideoPicture {
+}
+
+export interface ShortVideo {
+    avg_color: string | null;
+    duration: number;
+    full_res: string | null;
+    height: number;
+    id: number;
+    image: string;
+    tags: string[];
+    url: string;
+    user: {
+        id: number;
+        name: string;
+        url: string;
+    };
+    video_files: VideoFile[];
+    video_pictures: VideoPicture[];
+    width: number;
+}

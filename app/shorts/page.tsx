@@ -1,10 +1,30 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import ShortsVid from './ShortsVid';
+import { ShortsStore } from "../zustand/api/shortsStore";
+import { ShortVideo } from '../interfaces/Interfaces';
+import { VideoFile } from '../interfaces/Interfaces';
 
 const page = () => {
+
+    const { getShortVideos, shortVideos } = ShortsStore();
+
+    useEffect(() => {
+        getShortVideos(2)
+    }, [])
+
+    console.log(shortVideos)
+
     return (
-        <div className='border h-full flex items-center justify-center basis-1/3'>
-            <ShortsVid/>
+        <div className='border max-h-[calc(100vh-70px)] grid place-items-center overflow-y-scroll py-2 gap-6'>
+            {
+                shortVideos?.map((shorts: VideoFile) => (
+                    <ShortsVid
+                        shortVideos={shorts}                        
+                    />
+                ))
+            }
+
         </div>
     )
 }

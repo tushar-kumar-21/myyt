@@ -1,14 +1,46 @@
-import React from 'react'
-import { FaPlay, FaArrowUp, FaArrowDown } from 'react-icons/fa6';
+'use client';
+import React, { useEffect, useState } from 'react'
+import { FaPlay, FaArrowUp, FaArrowDown, FaPause } from 'react-icons/fa6';
 import { HiSpeakerWave } from 'react-icons/hi2';
 import { MdThumbUp, MdThumbDown, MdMessage } from 'react-icons/md';
 import { IoArrowRedo, IoEllipsisHorizontalSharp } from "react-icons/io5";
+import { ShortVideo, VideoFile } from '../interfaces/Interfaces';
 
-const ShortsVid = () => {
+interface ShortsProps {
+    shortVideos: VideoFile;
+}
+
+const ShortsVid: React.FC<ShortsProps> = ({ shortVideos }) => {
+
+
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const togglePlay = () => {
+        const video = document.getElementById('shortsVideo') as HTMLVideoElement;
+        if (video) {
+            if (isPlaying) {
+                video.pause();
+            } else {
+                video.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
+
+
+
     return (
-        <div className=' border h-[86%] basis-3/12 rounded-xl relative'>
+        <div className=' border min-h-[610px] w-[330px] rounded-xl relative overflow-hidden bg-black cursor-pointer'
+            onClick={togglePlay}
+            key={shortVideos.id}
+        >
             <div className='w-full flex justify-between px-6 py-5 absolute top-0 text-xl'>
-                <FaPlay />
+                {
+                    isPlaying ?
+                        <FaPause onClick={togglePlay} />
+                        :
+                        <FaPlay onClick={togglePlay} />
+                }
                 <HiSpeakerWave />
             </div>
             <div className='absolute bottom-0 flex flex-col p-4'>
@@ -23,7 +55,6 @@ const ShortsVid = () => {
                     <span> i can't believe i wrote this React code </span>
                 </div>
             </div>
-
             <div className='absolute text-2xl flex flex-col gap-5 items-center -right-16 bottom-0'>
                 <div className='flex flex-col items-center gap-1'>
                     <div className='bg-bgPrimary p-3 rounded-full relative'>
@@ -62,7 +93,24 @@ const ShortsVid = () => {
                         alt="img"
                     />
                 </div>
-            </div >
+            </div>
+            <video
+                id="shortsVideo"
+                src={shortVideos?.video_files[1]?.link}
+                className='w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+            ></video>
+
+            {
+                !isPlaying ?
+                    < div className={`bg-[rgba(0,0,0,0.7)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full grid place-items-center ${isPlaying ? 'playPauseAnim' : 'opacity-100'}`}>
+                        <FaPlay className="text-2xl" />
+                    </div>
+                    :
+                    < div className={`bg-[rgba(0,0,0,0.7)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full grid place-items-center playPauseAnim`}>
+                        <FaPause className="text-2xl" />
+                    </div>
+
+            }
         </div >
     )
 }

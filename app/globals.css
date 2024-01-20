@@ -21,6 +21,29 @@ body {
   background: #0f0f0f;
 }
 
+.playPauseAnim{
+  animation: playpause .5s linear forwards;
+}
+
+@keyframes playpause{
+  0%{
+    /* filter:blur(0); */
+    opacity:1;
+    transform:translate(-50%, -50%) scale(1)
+  }
+  /* 40%{
+    filter:blur(20px)
+  }
+  70%{
+    filter:blur(60px)
+  } */
+  100%{
+    /* filter: blur(8px); */
+    opacity: 0;
+    transform:translate(-50%, -50%) scale(1.5)
+  }
+}
+
 .scroller {
   scrollbar-width: thin;
   scrollbar-color: transparent;
