@@ -6,7 +6,7 @@ export const ShortsStore = create((set) => ({
         try {
             const response = await fetch(`https://api.pexels.com/videos/popular?page=${page}&per_page=4`, {
                 headers: {
-                    Authorization:process.env.AUTH,
+                    Authorization:process.env.Auth,
                 },
             });
 

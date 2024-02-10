@@ -45,7 +45,7 @@ body {
 }
 
 .scroller {
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: transparent;
 }
 

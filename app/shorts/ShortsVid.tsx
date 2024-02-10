@@ -30,7 +30,7 @@ const ShortsVid: React.FC<ShortsProps> = ({ shortVideos }) => {
 
 
     return (
-        <div className=' border min-h-[610px] w-[330px] rounded-xl relative overflow-hidden bg-black cursor-pointer'
+        <div className='min-h-[610px] w-[330px] rounded-xl relative  bg-black cursor-pointer'
             onClick={togglePlay}
             key={shortVideos.id}
         >

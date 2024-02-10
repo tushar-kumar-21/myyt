@@ -18,6 +18,8 @@ const config: Config = {
         bgPrimary: 'rgba(126,126,126,0.25)',
         bgBackPrimary:'#0f0f0f',
         textSecondary:"#aaa",
+        bluePrimary:"#3ea6ff",
+        bgGreyPop:"#282828",
       },
     },
   },

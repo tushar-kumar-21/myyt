@@ -2,6 +2,7 @@ export interface CategoryItem {
     label: string;
     icon: JSX.Element;
     id: number;
+    path?:string;
 }
 
 export interface VideoLists {

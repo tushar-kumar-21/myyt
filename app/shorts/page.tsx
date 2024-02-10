@@ -16,7 +16,7 @@ const page = () => {
     console.log(shortVideos)
 
     return (
-        <div className='border max-h-[calc(100vh-70px)] grid place-items-center overflow-y-scroll py-2 gap-6'>
+        <div className='max-h-[calc(100vh-70px)] grid place-items-center overflow-y-scroll py-2 gap-6 scroller'>
             {
                 shortVideos?.map((shorts: VideoFile) => (
                     <ShortsVid

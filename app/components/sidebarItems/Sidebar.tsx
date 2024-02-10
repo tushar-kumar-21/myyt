@@ -15,6 +15,7 @@ import { IoLogoYoutube, IoNewspaper } from "react-icons/io5";
 import { RiAddCircleLine } from "react-icons/ri";
 import { TbBrandYoutubeKids } from "react-icons/tb";
 import { CategoryItem } from '@/app/interfaces/Interfaces';
+import { useRouter } from 'next/navigation';
 
 const styles = {
     listStyle: 'list-none flex items-center p-2 gap-6 px-4 rounded-lg mb-1 cursor-pointer transition-all group hover:bg-bgPrimary'
@@ -23,9 +24,11 @@ const styles = {
 const Sidebar = () => {
     const { generateUniqueId } = useUniqueIdStore();
 
+    const router = useRouter();
+
     const categories: CategoryItem[] = [
-        { label: 'Home', icon: <GoHomeFill />, id: generateUniqueId() },
-        { label: 'Shorts', icon: <SiYoutubeshorts />, id: generateUniqueId() },
+        { label: 'Home', icon: <GoHomeFill />, id: generateUniqueId(), path: '/' },
+        { label: 'Shorts', icon: <SiYoutubeshorts />, id: generateUniqueId(), path: '/shorts' },
         { label: 'Subscriptions', icon: <MdSubscriptions />, id: generateUniqueId() },
         { label: 'You', icon: <PiMonitorPlayFill />, id: generateUniqueId() },
         { label: 'History', icon: <LuHistory />, id: generateUniqueId() },
@@ -48,7 +51,7 @@ const Sidebar = () => {
 
     const moreSection = [
         { label: 'YouTube Premium', icon: <IoLogoYoutube />, id: generateUniqueId() },
-            { label: 'YouTube Music', icon: <SiYoutubemusic />, id: generateUniqueId() },
+        { label: 'YouTube Music', icon: <SiYoutubemusic />, id: generateUniqueId() },
         { label: 'YouTube Kids', icon: <TbBrandYoutubeKids />, id: generateUniqueId() },
     ]
 
@@ -61,7 +64,7 @@ const Sidebar = () => {
             <ul className='px-2 pl-1'>
                 {categories?.map((item: CategoryItem, ind: number) => (
                     <>
-                        <li key={item.id} className={styles.listStyle} >
+                        <li key={item.id} className={styles.listStyle}onClick={() => item.path && router.push(item.path)}>
                             <span className="text-2xl">{item.icon}</span>
                             <span className="text-base font-medium tracking-wider">{item.label}</span>
                         </li>

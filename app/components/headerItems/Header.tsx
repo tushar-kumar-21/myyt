@@ -5,10 +5,12 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { HiOutlineDotsVertical, HiOutlineUserCircle } from "react-icons/hi";
 import { PiUserCircle } from "react-icons/pi";
 import { BiSolidMicrophone } from "react-icons/bi";
+import SignInPopUp from './SignInPopUp';
 
 const Header = () => {
     return (
-        <div className='p-5 flex justify-between pt-2 w-full bg-bgBackPrimary sticky top-0 z-20'>
+        <div className='p-5 flex justify-between pt-2 w-full bg-bgBackPrimary sticky top-0 z-50'>
+
             <div className='relative flex gap-4 w-fit items-center'>
                 <RxHamburgerMenu className="text-[22.5px] text-white" />
                 <Image
@@ -34,13 +36,16 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className='flex items-center gap-5'>
+            <div className='flex items-center gap-5 relative'>
                 <HiOutlineDotsVertical className="text-xl" />
                 <div className='flex items-center border border-gray-600 rounded-3xl p-2 py-1 gap-2'>
                     <PiUserCircle className="text-blue-500 text-[1.7rem]" />
                     <span className='text-blue-500 font-semibold text-base'>Sign in</span>
                 </div>
+            <SignInPopUp />
             </div>
+
+            
         </div>
     )
 }
