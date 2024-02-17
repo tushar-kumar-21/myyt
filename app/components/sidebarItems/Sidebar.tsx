@@ -48,15 +48,12 @@ const Sidebar = () => {
         { label: 'Podcasts', icon: <MdPodcasts />, id: generateUniqueId() },
         { label: 'Browse Channels', icon: <RiAddCircleLine />, id: generateUniqueId() },
     ]
+    
 
     const moreSection = [
         { label: 'YouTube Premium', icon: <IoLogoYoutube />, id: generateUniqueId() },
         { label: 'YouTube Music', icon: <SiYoutubemusic />, id: generateUniqueId() },
         { label: 'YouTube Kids', icon: <TbBrandYoutubeKids />, id: generateUniqueId() },
-    ]
-
-    const settings = [
-
     ]
 
     return (
@@ -110,6 +107,7 @@ const Sidebar = () => {
                     </>
                 ))}
             </ul>
+
             <div className="my-2 bg-gray-700 h-[.1px]" />
             <ul>
                 {moreSection?.map((item: CategoryItem, ind: number) => (
@@ -122,6 +120,7 @@ const Sidebar = () => {
                 ))}
             </ul>
             <div className="my-2 bg-gray-700 h-[.1px]" />
+
         </aside>
     );
 };

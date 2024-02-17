@@ -42,7 +42,7 @@ const Header = () => {
                     <PiUserCircle className="text-blue-500 text-[1.7rem]" />
                     <span className='text-blue-500 font-semibold text-base'>Sign in</span>
                 </div>
-            <SignInPopUp />
+            {/* <SignInPopUp /> */}
             </div>
 
             
