@@ -21,26 +21,27 @@ body {
   background: #0f0f0f;
 }
 
-.playPauseAnim{
+.playPauseAnim {
   animation: playpause .5s linear forwards;
 }
 
-@keyframes playpause{
-  0%{
+@keyframes playpause {
+  0% {
     /* filter:blur(0); */
-    opacity:1;
-    transform:translate(-50%, -50%) scale(1)
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1)
   }
+
   /* 40%{
     filter:blur(20px)
   }
   70%{
     filter:blur(60px)
   } */
-  100%{
+  100% {
     /* filter: blur(8px); */
     opacity: 0;
-    transform:translate(-50%, -50%) scale(1.5)
+    transform: translate(-50%, -50%) scale(1.5)
   }
 }
 
@@ -49,9 +50,21 @@ body {
   scrollbar-color: transparent;
 }
 
-.scroller::-webkit-scrollbar{
+.scroller::-webkit-scrollbar {
   width: 0px;
 }
-.scroller::-webkit-scrollbar-thumb{
+
+.scroller::-webkit-scrollbar-thumb {
   width: 0px;
+}
+
+input:focus + .labelAnim,
+input:valid + .labelAnim{
+    padding-inline: 1rem;
+    transform: translate(-0.5rem, -1.5rem);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+input:focus-visible{
+  transform: translate(100px,100px);
 }

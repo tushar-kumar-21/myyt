@@ -20,6 +20,7 @@ const config: Config = {
         textSecondary:"#aaa",
         bluePrimary:"#3ea6ff",
         bgGreyPop:"#282828",
+        bgInput:'rgb(247 164 164)',
       },
     },
   },
