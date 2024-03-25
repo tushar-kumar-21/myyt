@@ -1,8 +1,12 @@
+import { FieldInputProps } from "formik";
+import React from "react";
+import { IconType } from "react-icons";
+
 export interface CategoryItem {
     label: string;
     icon: JSX.Element;
     id: number;
-    path?:string;
+    path?: string;
 }
 
 export interface VideoLists {
@@ -61,4 +65,22 @@ export interface ShortVideo {
     video_files: VideoFile[];
     video_pictures: VideoPicture[];
     width: number;
+}
+
+export interface ButtonProps {
+    label: string;
+    className?: string;
+    variant: string;
+    icon?: React.ReactNode,
+    type?: "button" | "submit" | "reset" | undefined;
+    onClick?: ()=>void;
+}
+
+export interface formikProps {
+    formik: {
+        getFieldProps: (nameOrOptions: string | FieldInputProps<any>) => FieldInputProps<any>;
+        errors?: {
+            [key: string]: string;
+        }
+    }
 }

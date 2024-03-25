@@ -1,4 +1,4 @@
-import CommonInput from '@/app/components/common/CommonInput';
+import CommonInput from '@/app/components/common/inputs/CommonInput';
 import Image from 'next/image';
 import ytlogo from "../../../public/svgs/ytlogo-wh.svg"
 import React from 'react'
@@ -16,13 +16,11 @@ const LoginForm = () => {
             <span className='text-2xl'>Log in to your account</span>
             <CommonInput
                 type="text"
-                placeHolder='Enter your email'
-                name="login"
+                name="username-email"
                 label='Username or email'
             />
             <CommonInput
                 type="password"
-                placeHolder='Enter your password'
                 name="password"
                 label='Password'
             />
