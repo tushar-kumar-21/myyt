@@ -1,11 +1,20 @@
 import CommonInput from '@/app/components/common/inputs/CommonInput';
 import Image from 'next/image';
 import ytlogo from "../../../public/svgs/ytlogo-wh.svg"
-import React from 'react'
+import React, { useState } from 'react'
+import { FormikProps } from 'formik';
+import { formikProps } from '@/app/interfaces/Interfaces';
 
-const LoginForm = () => {
+const LoginForm: React.FC<formikProps> = ({ formik }) => {
+
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    const togglePassword=()=>{
+        setShowPassword((prev:boolean)=>!prev)
+    }
+    
     return (
-        <div className='flex flex-col gap-5 w-[80%]'>
+        <div className='flex flex-col gap-5 w-full'>
             <Image
                 src={ytlogo}
                 height={90}
@@ -16,13 +25,17 @@ const LoginForm = () => {
             <span className='text-2xl'>Log in to your account</span>
             <CommonInput
                 type="text"
-                name="username-email"
+                name="usernameOrEmail"
                 label='Username or email'
+                formik={formik}
             />
             <CommonInput
-                type="password"
+                type={showPassword ? "text":'password'}
                 name="password"
                 label='Password'
+                togglePassword={togglePassword}
+                showPassword={showPassword}
+                formik={formik}
             />
             <div className='w-full flex justify-end'>
                 <span className='text-lg'>Forgot your password</span>

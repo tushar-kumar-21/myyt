@@ -1,9 +1,8 @@
 // api.js
 
 import axios from 'axios';
-// export const baseURL = 'https://designoweb.work/hollywoodhair/crm/api/';
 export const baseURL = 'https://ytbackend-r3du.onrender.com/api/v1/';
-// export const baseURL = 'http://13.48.218.147/crm/api/';
+// export const baseURL = 'http://localhost:5000/api/v1/';
 const createApiInstance = (customHeaders = {}) => {
   const instance = axios.create({
     baseURL,

@@ -1,23 +1,31 @@
 'use client';
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import RegisterForm from './RegisterForm'
 import Banner from '../login/Banner'
 import Button from '@/app/components/common/buttons/Button'
 import { useFormik } from 'formik'
 import { registerUserSchema } from '@/app/api/schema'
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '@/app/api/redux/slices/auth';
+import { RootState, AppDispatch } from '@/app/api/redux/store/store';
 
 const Register = () => {
 
+    const userRef = useRef(false);
+    const dispatch = useDispatch<AppDispatch>();
+    const { btnValidator } = useSelector((state: RootState) => state.commonReducer);
+    
+
     const formik = useFormik({
         initialValues: {
-            username: '',
+            usernameOrEmail: '',
             fullname: '',
             email: '',
             password: ''
         },
-        validationSchema:registerUserSchema,
+        validationSchema: registerUserSchema,
         onSubmit: (values) => {
-            console.log(values);
+            dispatch(registerUser(values))
         }
     });
 
@@ -30,6 +38,7 @@ const Register = () => {
                         label="Register"
                         variant='theme'
                         onClick={formik.handleSubmit}
+                        loading={btnValidator}
                     />
                 </div>
                 <div className='grid place-items-center overflow-hidden'>

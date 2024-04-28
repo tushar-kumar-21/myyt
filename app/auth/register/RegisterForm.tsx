@@ -2,7 +2,7 @@
 import CommonInput from '@/app/components/common/inputs/CommonInput';
 import Image from 'next/image';
 import ytlogo from "../../../public/svgs/ytlogo-wh.svg"
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { FieldInputProps, useFormik } from 'formik';
@@ -11,6 +11,12 @@ import { formikProps } from '@/app/interfaces/Interfaces';
 
 const RegisterForm: React.FC<formikProps> = ({formik}) => {
 
+    
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    const togglePassword=()=>{
+        setShowPassword((prev:boolean)=>!prev)
+    }
 
     return (
         <div className='flex flex-col gap-5 w-full'>
@@ -41,9 +47,11 @@ const RegisterForm: React.FC<formikProps> = ({formik}) => {
                 formik={formik}
             />
             <CommonInput
-                type="password"
+                type={showPassword ? "text":'password'}
                 name="password"
                 label='Password'
+                togglePassword={togglePassword}
+                showPassword={showPassword}
                 formik={formik}
             />
             <div className='w-full flex justify-end hover:text-red-700 group hover:underline'>

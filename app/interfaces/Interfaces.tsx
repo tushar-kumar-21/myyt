@@ -73,6 +73,7 @@ export interface ButtonProps {
     variant: string;
     icon?: React.ReactNode,
     type?: "button" | "submit" | "reset" | undefined;
+    loading?:boolean;
     onClick?: ()=>void;
 }
 
