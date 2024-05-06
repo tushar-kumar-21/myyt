@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import ytlogo from '../../../public/svgs/ytlogo-wh.svg';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { IoSearchOutline } from 'react-icons/io5';
 import { HiOutlineDotsVertical, HiOutlineUserCircle } from "react-icons/hi";
@@ -9,12 +10,12 @@ import SignInPopUp from './SignInPopUp';
 
 const Header = () => {
     return (
-        <div className='p-5 flex justify-between pt-2 w-full bg-bgBackPrimary sticky top-0 z-50'>
+        <div className='p-5 flex justify-between pt-2 w-full bg-bgBackPrimary sticky top-0 z-50 max-h-[70px]'>
 
             <div className='relative flex gap-4 w-fit items-center'>
                 <RxHamburgerMenu className="text-[22.5px] text-white" />
                 <Image
-                    src="svgs/ytlogo-wh.svg"
+                    src={ytlogo}
                     height={90}
                     width={90}
                     alt="ytlogo"

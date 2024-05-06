@@ -7,6 +7,7 @@ import { LuHistory } from 'react-icons/lu';
 import useUniqueIdStore from '@/app/zustand/store';
 import { IconType } from 'react-icons';
 import { BsFire } from "react-icons/bs";
+import { LuUserSquare } from "react-icons/lu";
 import { SiYoutubemusic } from "react-icons/si";
 import { FaLightbulb } from "react-icons/fa6";
 import { HiMiniShoppingBag, HiMiniTrophy } from "react-icons/hi2";
@@ -27,11 +28,12 @@ const Sidebar = () => {
     const router = useRouter();
 
     const categories: CategoryItem[] = [
-        { label: 'Home', icon: <GoHomeFill />, id: generateUniqueId(), path: '/' },
+        { label: 'Home', icon: <GoHomeFill />, id: generateUniqueId(), path: '/dashboard' },
         { label: 'Shorts', icon: <SiYoutubeshorts />, id: generateUniqueId(), path: '/shorts' },
-        { label: 'Subscriptions', icon: <MdSubscriptions />, id: generateUniqueId() },
+        { label: 'Subscriptions', icon: <MdSubscriptions />, id: generateUniqueId(), path: "/dashboard/subscriptions" },
         { label: 'You', icon: <PiMonitorPlayFill />, id: generateUniqueId() },
         { label: 'History', icon: <LuHistory />, id: generateUniqueId() },
+        { label: 'Your channel', icon: <LuUserSquare />, id: generateUniqueId() },
     ];
 
     const exploreCategories: CategoryItem[] = [
@@ -48,7 +50,7 @@ const Sidebar = () => {
         { label: 'Podcasts', icon: <MdPodcasts />, id: generateUniqueId() },
         { label: 'Browse Channels', icon: <RiAddCircleLine />, id: generateUniqueId() },
     ]
-    
+
 
     const moreSection = [
         { label: 'YouTube Premium', icon: <IoLogoYoutube />, id: generateUniqueId() },
@@ -61,17 +63,21 @@ const Sidebar = () => {
             <ul className='px-2 pl-1'>
                 {categories?.map((item: CategoryItem, ind: number) => (
                     <>
-                        <li key={item.id} className={styles.listStyle}onClick={() => item.path && router.push(item.path)}>
+                        <li key={item.id} className={styles.listStyle} onClick={() => item.path && router.push(item.path)}>
                             <span className="text-2xl">{item.icon}</span>
                             <span className="text-base font-medium tracking-wider">{item.label}</span>
                         </li>
-                        {item.label === 'Subscriptions' && <div className="my-2 bg-gray-700 h-[.1px]" />}
                         {item.label === 'Subscriptions' &&
-                            <div className='flex items-center px-4 my-2 mb-1 rounded-lg py-2 hover:bg-bgPrimary'>
-                                <span className='text-lg mr-1 font-semibold'>You</span>
-                                <IoIosArrowForward className="text-sm mt-[4px]" />
-                            </div>}
-                        {item.label === 'History' && <div className="my-2 bg-gray-700 h-[.1px]" />}
+                            <>
+                                <div className="my-2 bg-gray-700 h-[.1px]" />
+
+                                <div className='flex items-center px-4 my-2 mb-1 rounded-lg py-2 hover:bg-bgPrimary'>
+                                    <span className='text-lg mr-1 font-semibold'>You</span>
+                                    <IoIosArrowForward className="text-sm mt-[4px]" />
+                                </div>
+                            </>
+                        }
+                        {/* {item.label === 'History' && <div className="my-2 bg-gray-700 h-[.1px]" />} */}
                     </>
                 ))}
             </ul>

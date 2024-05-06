@@ -9,6 +9,7 @@ export const ShortsStore = create((set) => ({
                     Authorization:process.env.Auth,
                 },
             });
+            console.log(response);
 
             if (!response.ok) {
                 throw new Error(`Failed to fetch short videos, status: ${response.status}`);
