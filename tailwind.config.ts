@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         primaryColor:'#fff',
         bgPrimary: 'rgba(126,126,126,0.25)',
+        bgSecondary:"rgba(255, 255, 255, 0.1)",
         bgBackPrimary:'#0f0f0f',
         textSecondary:"#aaa",
         bluePrimary:"#3ea6ff",

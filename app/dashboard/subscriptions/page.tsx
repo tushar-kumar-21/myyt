@@ -1,9 +1,12 @@
+'use client';
 import VideoYts from '@/app/components/common/VideoYts';
-import React from 'react'
+import React, { useState } from 'react'
 import { TfiLayoutGrid3Alt } from "react-icons/tfi";
 import { IoListSharp } from "react-icons/io5";
 
 const Page = () => {
+
+    const [view, setView] = useState("grid");
 
     const videoData = [
         {
@@ -24,55 +27,58 @@ const Page = () => {
                 <span className='text-white text-xl font-semibold'>Latest</span>
                 <div className='flex gap-5 items-center'>
                     <span className='text-bluePrimary font-semibold'>Manage</span>
-                    <TfiLayoutGrid3Alt />
-                    <IoListSharp className='text-xl'/>
+                    <TfiLayoutGrid3Alt className='cursor-pointer' onClick={() => setView("grid")} />
+                    <IoListSharp className='text-xl cursor-pointer' onClick={() => setView("list")} />
                 </div>
             </div>
-            <div className='w-full grid grid-cols-4 p-6 gap-6'>
+            <div className={`w-full grid ${view == "list" ? 'grid-cols-1' : 'grid-cols-4'} p-6 gap-6`}>
                 {videoData?.map((video, ind) => (
                     <>
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
                         <VideoYts
+                            className={(view === "list") ? "flex" : ""}
                             video={video}
                         />
-                        <VideoYts
-                            video={video}
-                        />
-                        <VideoYts
-                            video={video}
-                        />
-                        <VideoYts
-                            video={video}
-                        />
+                     
                     </>
                 ))}
             </div>
