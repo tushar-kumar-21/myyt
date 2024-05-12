@@ -17,11 +17,18 @@ const Page = () => {
           <span className='text-[2.5rem] leading-none font-bold'>tushar kumar</span>
           <span className='text-textSecondary'>@tusharkumar-dw1qc</span>          
           <span className='flex items-center text-textSecondary'>More about this channel <TfiAngleRight/></span>          
-        </div>
-        <div>
+        <div className='mt-5 space-x-5'>
           <span className='text-white font-semibold rounded-3xl bg-bgSecondary p-2 px-4'>Customize channel</span>
+          <span className='text-white font-semibold rounded-3xl bg-bgSecondary p-2 px-4'>Manage videos</span>
         </div>
-      </div>
+        </div>
+
+      </div>         
+        <div className='w-full'>
+        <div className='list-none border-b-[1px] border-bgSecondaryLow w-full'>
+          <li className='font-semibold text-lg border-b-2 border-white max-w-fit px-[2px] pb-2'>Home</li>
+        </div>
+        </div>
     </div>
   )
 }
