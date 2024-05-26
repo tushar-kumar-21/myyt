@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from './Header';
 
 const Page = () => {
   return (
-    <div>Page</div>
+    <section className='bg-bgGreySolid'>
+      <Header/>
+    </section>
   )
 }
 

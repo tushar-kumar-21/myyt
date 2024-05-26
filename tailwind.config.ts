@@ -23,6 +23,7 @@ const config: Config = {
         bluePrimary:"#3ea6ff",
         bgGreyPop:"#282828",
         bgInput:'rgb(247 164 164)',
+        bgGreySolid:'#282828',
       },
     },
   },

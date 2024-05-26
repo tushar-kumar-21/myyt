@@ -54,6 +54,10 @@ import { ButtonProps } from '@/app/interfaces/Interfaces'
 
 import { twMerge } from 'tailwind-merge'
 
+interface ButtonVariant {
+    [key: string]: string[];
+}
+
 const Button: React.FC<ButtonProps> = ({
     label,
     type = "submit",
@@ -64,7 +68,7 @@ const Button: React.FC<ButtonProps> = ({
     loading,
 }) => {
 
-    const buttonVariants = {
+    const buttonVariants: ButtonVariant = {
         theme: [
             "relative flex items-center gap-4 text-lg font-semibold border border-2 border-transparent py-[5px] px-3 w-full justify-center rounded-md bg-red-600 transition-all duration-300 cursor-pointer hover:text-white hover:bg-red-700 hover:border-red-700",
             "text-white",
