@@ -2,7 +2,7 @@
 
 const SignInPopUp = () => {
     return (
-        <div className="absolute -bottom-20 -left-[280px] border  p-4 rounded-lg w-[300px] bg-bgGreyPop">
+        <div className="absolute -bottom-20 -left-[280px] border  p-4 rounded-lg w-[300px] bg-bgGreySolid">
             <div className="flex justify-start w-full items-start gap-4">
 
                 <img
