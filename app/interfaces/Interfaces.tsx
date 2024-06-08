@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 export interface CategoryItem {
     label: string;
     icon: JSX.Element;
-    id: number;
+    id?: number;
     path?: string;
 }
 

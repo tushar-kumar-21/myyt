@@ -18,15 +18,17 @@ const config: Config = {
         bgPrimary: 'rgba(126,126,126,0.25)',
         bgSecondary:"rgba(255, 255, 255, 0.1)",
         bgSecondaryLow:"rgba(255, 255, 255, 0.2)",
+        activeBlack:'#1f1f1f',
         bgBackPrimary:'#0f0f0f',
         textSecondary:"#aaa",
         greyColor:"#606060",
         bluePrimary:"#3ea6ff",
         bgInput:'rgb(247 164 164)',
         bgGreySolid:'#282828',
+        textPrimary:"#ff4e45",
       },
     },
   },
   plugins: [],
 }
-export default config
+export default config;
